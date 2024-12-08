@@ -9,10 +9,19 @@ public class RayLight : MonoBehaviour
 
 
    public void Draw()
-   {
+   {   
+      
+   
+      // r = distance + distance;
+      // g = distance - distance;
+      // b = r * g;
 
-      // color = distance + distance
-      // color = distance - distance
-      // color = color * color
+     float magnitude = (r + g + b);
+
+     r = r / magnitude;
+     g = g / magnitude;
+     b = b / magnitude;
+
+    
    }
 }
