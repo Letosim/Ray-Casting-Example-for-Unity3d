@@ -8,7 +8,7 @@ public class RayLight : MonoBehaviour
     public Vector3 color;
 
 
-   public void Draw()
+   public void Draw(Vector3 positionA, Vector3 positionB)
    {   
       
    
@@ -22,6 +22,6 @@ public class RayLight : MonoBehaviour
      g = g / magnitude;
      b = b / magnitude;
 
-    
+     Debug.DrawLine(positionA, positionB, new Colour(r,g,b,a)
    }
 }
