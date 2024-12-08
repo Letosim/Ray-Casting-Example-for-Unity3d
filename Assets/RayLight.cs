@@ -13,8 +13,8 @@ public class RayLight : MonoBehaviour
       
    
        r = distance + distance;
-       g = g / distance;
-       b = r * g;
+       g = r / distance;
+       b = r + g;
 
      float magnitude = (r + g + b);
 
