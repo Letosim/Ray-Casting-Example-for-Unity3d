@@ -24,6 +24,7 @@ public class RayLight : MonoBehaviour
      a = f1-((float) depth / (float) maxDepth);
      Debug.DrawLine(positionA, positionB, new Color(r,g,b,a);
    }
+   public void Draw(Vector3 positionA, Vector3 positionB, 
 
 //light
 }
