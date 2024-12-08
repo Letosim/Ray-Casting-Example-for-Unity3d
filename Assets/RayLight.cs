@@ -5,7 +5,7 @@ using UnityEngine;
 public class RayLight : MonoBehaviour
 {
     public float distance;
-    public Vector3 color;
+   
 
 
    public void Draw(Vector3 positionA, Vector3 positionB , int depth, int maxDepth)
@@ -21,7 +21,7 @@ public class RayLight : MonoBehaviour
      r = r / magnitude;
      g = g / magnitude;
      b = b / magnitude;
-     a = f1-(float) depth / (float) maxDepth;
+     a = f1-((float) depth / (float) maxDepth);
      Debug.DrawLine(positionA, positionB, new Color(r,g,b,a);
    }
 
