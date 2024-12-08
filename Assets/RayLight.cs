@@ -34,11 +34,8 @@ public void Draw(Vector3 positionA, Vector3 positionB, Vector3 color)
 
 public void Draw(Vector3 positionA, Vector3 positionB, Vector3 color)
 {
-
-a = (f1-((float) depth / (float) maxDepth));
-     Debug.DrawLine(positionA, positionB, new Color(r,g,b,a);
-
  Debug.DrawLine(positionA, positionB, color * (f1-((float) depth / (float) maxDepth))  );
+
 }
 
 
