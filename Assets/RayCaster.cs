@@ -58,17 +58,15 @@ public class RayCaster : MonoBehaviour
             if (hitPointCamera.collider != null)
             {
                 if (i == 0 || i == steps - 1)
-                    Debug.DrawLine(Camera.main.ScreenToWorldPoint(new Vector3(x, y, 0)), hitPointCamera.point, Color.red);
+                   //Debug.DrawLine(Camera.main.ScreenToWorldPoint(n//ew Vector3(x, y, 0)), hitPointCamera.point, //Color.red);
 
                 Vector3 albedo = Vector3.zero;
 
                 albedo += WorldPointToLightRay(hitPointCamera.point + hitPointCamera.normal * .01f, i);
 
 
-//
-//
-//
-//
+
+Draw(Camera.main.ScreenToWorldPoint(new Vector3(x, y, 0)), hitPointCamera.point, albedo);
 
 
 
@@ -93,7 +91,10 @@ public class RayCaster : MonoBehaviour
 
                             //reflectionPoint
                             Debug.Log("?");
-                            Debug.DrawLine(reflectionPoint, hitPointCamera.point, Color.magenta);
+                            //Debug.DrawLine(reflectionPoint, //hitPointCamera.point, Color.magenta);
+
+
+Draw(reflectionPoint, hitPointCamera.point, hitPointCamera.point, albedo);
 
                             Physics.Raycast(hitPointCamera.point, direction, out hitPointCamera, 5000);
 
@@ -108,9 +109,6 @@ public class RayCaster : MonoBehaviour
                     {
                         albedoReflections /= reflections;
                         albedo = (albedo + albedoReflections) / 2f;
-
-
-
 
 
 
@@ -194,6 +192,37 @@ public class RayCaster : MonoBehaviour
 
         return albedo;
     }
+
+
+   public void Draw(Vector3 positionA, Vector3 positionB , int depth, int maxDepth)
+   {   
+       r = distance + distance;
+       g = r / distance;
+       b = r + g;
+
+     float magnitude = (r + g + b);
+
+     r = r / magnitude;
+     g = g / magnitude;
+     b = b / magnitude;
+
+     a = (float) depth / (float) maxDepth;
+
+     Debug.DrawLine(positionA, positionB, new Color(r,g,b,a);
+   }
+
+
+public void Draw(Vector3 positionA, Vector3 positionB, Color color)
+{
+   Debug.DrawLine(positionA, positionB, color);
+}
+
+
+public void Draw(Vector3 positionA, Vector3 positionB, Vector3 color)
+   {
+ Debug.DrawLine(positionA, positionB, color * (f1-((float) depth / (float) maxDepth))  );
+
+   }
 
 
 }
