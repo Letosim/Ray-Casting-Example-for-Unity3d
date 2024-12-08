@@ -8,7 +8,7 @@ public class RayLight : MonoBehaviour
     public Vector3 color;
 
 
-   public void Draw(Vector3 positionA, Vector3 positionB , int depth)
+   public void Draw(Vector3 positionA, Vector3 positionB , int depth, int maxDepth)
    {   
       
    
