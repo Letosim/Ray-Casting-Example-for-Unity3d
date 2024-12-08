@@ -26,7 +26,7 @@ public class RayLight : MonoBehaviour
    }
    
 
-public void Draw(Vector3 positionA, Vector3 positionB)
+public void Draw(Vector3 positionA, Vector3 positionB, Color color)
 {
    Debug.DrawLine(positionA, positionB, color);
 }
