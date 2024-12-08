@@ -64,6 +64,14 @@ public class RayCaster : MonoBehaviour
 
                 albedo += WorldPointToLightRay(hitPointCamera.point + hitPointCamera.normal * .01f, i);
 
+
+//
+//
+//
+//
+
+
+
                 Vector3 albedoReflections = Vector3.zero;
 
                 if (hitPointCamera.collider.transform.GetComponent<IsReflective>())
@@ -100,6 +108,13 @@ public class RayCaster : MonoBehaviour
                     {
                         albedoReflections /= reflections;
                         albedo = (albedo + albedoReflections) / 2f;
+
+
+
+
+
+
+
                     }
                 }
 
