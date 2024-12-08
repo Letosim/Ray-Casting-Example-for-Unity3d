@@ -21,7 +21,9 @@ public class RayLight : MonoBehaviour
      r = r / magnitude;
      g = g / magnitude;
      b = b / magnitude;
-     a =
+     a = f1-(float) depth / (float) maxDepth;
      Debug.DrawLine(positionA, positionB, new Color(r,g,b,a);
    }
+
+//light
 }
