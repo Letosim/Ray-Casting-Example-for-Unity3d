@@ -5,7 +5,7 @@ using UnityEngine;
 public class RayLight : MonoBehaviour
 {
     public float distance;
-   
+    public Vector3 Color;
 
 
    public void Draw(Vector3 positionA, Vector3 positionB , int depth, int maxDepth)
