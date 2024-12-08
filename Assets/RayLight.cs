@@ -8,7 +8,7 @@ public class RayLight : MonoBehaviour
     public Vector3 color;
 
 
-   public Draw()
+   public void Draw()
    {
 
       // color = distance + distance
