@@ -69,19 +69,20 @@ public class RayCaster : MonoBehaviour
                 Physics.Raycast(Camera.main.ScreenPointToRay(new Vector3(x, y, 0)), out hitPointCamera, 5000);
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-                GenerateSpline(hitPointCamera.point, Vector3.Cross(hitPointCamera.normal, Vector3.up).normalized);
+                GenerateSpline(hitPointCamera.point, Vector3.Cross(hitPointCamera.normal, Vector3.up).normalized, hitPointCamera.normal);
 
 
-GenerateSpline(hitPointCamera.point, Vector3.Cross(hitPointCamera.normal, Vector3.right).normalized);
+                GenerateSpline(hitPointCamera.point, Vector3.Cross(hitPointCamera.normal, Vector3.right).normalized, hitPointCamera.normal);
 
 
-GenerateSpline(hitPointCamera.point, Vector3.Cross(hitPointCamera.normal, Vector3.bottum).normalized);
+                GenerateSpline(hitPointCamera.point, Vector3.Cross(hitPointCamera.normal, Vector3.bottum).normalized, hitPointCamera.normal);
 
 
-GenerateSpline(hitPointCamera.point, Vector3.Cross(hitPointCamera.normal, Vector3.left).normalized);
+                GenerateSpline(hitPointCamera.point, Vector3.Cross(hitPointCamera.normal, Vector3.left).normalized, hitPointCamera.normal);
 
 
-                if (o == 0) Physics.Raycast(Camera.main.ScreenPointToRay(new Vector3(x, y, 0)), out hitPointCamera, 5000);
+                if (o == 0)
+ Physics.Raycast(Camera.main.ScreenPointToRay(new Vector3(x, y, 0)), out hitPointCamera, 5000);
                 else
                 {
                     Vector3 origin = Camera.main.ScreenPointToRay(new Vector3(x + 15.1f, y, 0)).origin;
@@ -332,9 +333,9 @@ GenerateSpline(hitPointCamera.point, Vector3.Cross(hitPointCamera.normal, Vector
 
 
 
-    void GenerateSpline(Vector3 hitPoint, Vector3 direction)
+    void GenerateSpline(Vector3 hitPoint, Vector3 direction, Vector3 normal)
     {
-        //normal = normal * .1f;
+        normal = normal * .1f;
 
         controlPoints.Clear();
         controlPoints.Add(hitPoint); // Add the initial hit point
