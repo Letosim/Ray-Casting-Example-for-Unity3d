@@ -69,11 +69,10 @@ public class RayCaster : MonoBehaviour
                 Physics.Raycast(Camera.main.ScreenPointToRay(new Vector3(x, y, 0)), out hitPointCamera, 5000);
 
 //++++++++++++++++++++++++++++++++++++++++++
-                GenerateSpline(hitPointCamera.point, hitPointCamera.normal);
+                GenerateSpline(hitPointCamera.point, Vector3.Cross(hitPointCamera.normal, Vector3.up).normalized);
 
 
-                if (o == 0)
-                    Physics.Raycast(Camera.main.ScreenPointToRay(new Vector3(x, y, 0)), out hitPointCamera, 5000);
+                if (o == 0) Physics.Raycast(Camera.main.ScreenPointToRay(new Vector3(x, y, 0)), out hitPointCamera, 5000);
                 else
                 {
                     Vector3 origin = Camera.main.ScreenPointToRay(new Vector3(x + 15.1f, y, 0)).origin;
