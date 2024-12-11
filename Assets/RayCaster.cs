@@ -68,7 +68,7 @@ public class RayCaster : MonoBehaviour
 
                 Physics.Raycast(Camera.main.ScreenPointToRay(new Vector3(x, y, 0)), out hitPointCamera, 5000);
 
-
+//++++++++++++++++++++++++++++++++++++++++++
                 GenerateSpline(hitPointCamera.point, hitPointCamera.normal);
 
 
@@ -326,16 +326,32 @@ public class RayCaster : MonoBehaviour
 
     void GenerateSpline(Vector3 hitPoint, Vector3 normal)
     {
-        hitPoint += normal * .1f;
+     //normal = normal * .1f;
 
         controlPoints.Clear();
         controlPoints.Add(hitPoint); // Add the initial hit point
 
         Vector3 currentPoint = hitPoint;
-        Vector3 direction = Vector3.Cross(normal, Vector3.right).normalized; // Tangent direction around the edge
+        Vector3 direction = Vector3.Cross(normal, Vector3.up).normalized; // Tangent direction around the edge
 
-        Debug.Log(direction);
 
+Vector3 direction = Vector3.Cross(normal, Vector3.right).normalized; // Tangent direction around the edge
+
+
+Vector3 direction = Vector3.Cross(normal, Vector3.bottum).normalized; // Tangent direction around the edge
+
+
+
+Vector3 direction = Vector3.Cross(normal, Vector3.left).normalized; // Tangent direction around the edge
+
+
+
+
+
+
+
+
+        
 
         for (int i = 1; i <= 4; i++) // Generate 4 additional control points along the edge
         {
