@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//limina name!!
+
 public class RayCaster : MonoBehaviour
 {
     public RayLight[] lights;
