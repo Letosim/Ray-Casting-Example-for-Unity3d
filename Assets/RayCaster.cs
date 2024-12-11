@@ -332,27 +332,17 @@ GenerateSpline(hitPointCamera.point, Vector3.Cross(hitPointCamera.normal, Vector
 
 
 
-    void GenerateSpline(Vector3 hitPoint, Vector3 normal)
+    void GenerateSpline(Vector3 hitPoint, Vector3 direction)
     {
-     //normal = normal * .1f;
+        //normal = normal * .1f;
 
         controlPoints.Clear();
         controlPoints.Add(hitPoint); // Add the initial hit point
 
-        Vector3 currentPoint = hitPoint;
-        Vector3 direction = Vector3.Cross(normal, Vector3.up).normalized; // Tangent direction around the edge
+      Vector3 currentPoint = hitPoint;//+normal >_>
 
 
-Vector3 direction = Vector3.Cross(normal, Vector3.right).normalized; // Tangent direction around the edge
-
-
-Vector3 direction = Vector3.Cross(normal, Vector3.bottum).normalized; // Tangent direction around the edge
-
-
-
-Vector3 direction = Vector3.Cross(normal, Vector3.left).normalized; // Tangent direction around the edge
-
-
+        
 
 
 
@@ -364,6 +354,9 @@ Vector3 direction = Vector3.Cross(normal, Vector3.left).normalized; // Tangent d
         for (int i = 1; i <= 4; i++) // Generate 4 additional control points along the edge
         {
             currentPoint += direction * (edgeLength / 4); // Move along the edge
+
+
+//cast ray hitpointDir
 
 
 
