@@ -72,13 +72,13 @@ public class RayCaster : MonoBehaviour
                 GenerateSpline(hitPointCamera.point, Vector3.Cross(hitPointCamera.normal, Vector3.up).normalized, hitPointCamera.normal);
 
 
-                GenerateSpline(hitPointCamera.point, Vector3.Cross(hitPointCamera.normal, Vector3.right).normalized, hitPointCamera.normal);
+       //         GenerateSpline(hitPointCamera.point, Vector3.Cross(hitPointCamera.normal, Vector3.right).normalized, hitPointCamera.normal);
 
 
-                GenerateSpline(hitPointCamera.point, Vector3.Cross(hitPointCamera.normal, Vector3.bottum).normalized, hitPointCamera.normal);
+       //         GenerateSpline(hitPointCamera.point, Vector3.Cross(hitPointCamera.normal, Vector3.bottum).normalized, hitPointCamera.normal);
 
 
-                GenerateSpline(hitPointCamera.point, Vector3.Cross(hitPointCamera.normal, Vector3.left).normalized, hitPointCamera.normal);
+       //         GenerateSpline(hitPointCamera.point, Vector3.Cross(hitPointCamera.normal, Vector3.left).normalized, hitPointCamera.normal);
 
 
                 if (o == 0)
@@ -335,31 +335,26 @@ public class RayCaster : MonoBehaviour
 
     void GenerateSpline(Vector3 hitPoint, Vector3 direction, Vector3 normal)
     {
-        normal = normal * .1f;
+            normal = normal * .1f;
 
-        controlPoints.Clear();
-        controlPoints.Add(hitPoint); // Add the initial hit point
+            controlPoints.Clear();
 
-      Vector3 currentPoint = hitPoint;//+normal >_>
+            Vector3 currentPoint = hitPoint + normal;//+normal >_>
 
+            controlPoints.Add(currentPoint); // Add the initial hit point
 
-        
-
-
-
-
-
-
-        
 
         for (int i = 1; i <= 4; i++) // Generate 4 additional control points along the edge
         {
             currentPoint += direction * (edgeLength / 4); // Move along the edge
 
 
-//cast ray hitpointDir
+            //cast ray hitpointDir
+            
+            Physics.Raycast(currentPoint, normal * -1f, out hitPointCamera, 5000);
 
-
+            
+            //normal * -1 !?
 
             controlPoints.Add(currentPoint);
         }
